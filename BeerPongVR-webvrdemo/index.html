@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.2.0/dist/aframe-physics-system.min.js"></script>
+    <script src="components/waitForAirhorn.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+          <a-asset-item id="table" src="assets/NEWoodenTable.gltf">
+          <a-asset-item id="cup" src="assets/NEWsolocupred.gltf">
+          <a-asset-item id="pingPongBall" src="assets/pingpongball.gltf">
+          <a-asset-item id="room" src="assets/bestgreenroom.gltf">
+          <a-asset-item id="fratboi" src="assets/fratboi.gltf">
+          <img id="floor" src="assets/floor_texture.jpg">
+          <img id="wood" src="assets/wood.jpg">
+          <img id="feridun" src="assets/feridun.jpg">
+          <img id="goose" src="assets/goose.jpg">
+      </a-assets>
+      <!-- Table -->
+      <a-gltf-model src="#table" scale="0.15 0.1 0.15" position="0 0.6 -1"></a-gltf-model>
+
+      <!-- Cups -->
+      <a-gltf-model src="#cup" static-body id="oursBottomCenter"
+        scale="0.03 0.03 0.03" position="0 1.2 -0.3">
+        <a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle>
+      </a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="oursBottomLeft
+        "scale="0.03 0.03 0.03" position="-0.115 1.2 -0.3">
+        <a-circle color="#F53600" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle>
+      </a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="oursBottomRight
+        "scale="0.03 0.03 0.03" position="0.115 1.2 -0.3"><a-circle color="#F53600" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="oursMiddleLeft
+        "scale="0.03 0.03 0.03" position="-0.0575 1.2 -0.4"><a-circle color="#F53600" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="oursMiddleRight
+        "scale="0.03 0.03 0.03" position="0.0575 1.2 -0.4"><a-circle color="#F53600" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="oursTopCenter
+        "scale="0.03 0.03 0.03" position="0 1.2 -0.5"><a-circle color="#F53600" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+
+      <a-gltf-model src="#cup" static-body id="theirsBottomCenter"
+        scale="0.03 0.03 0.03" position="0 1.2 -1.65"><a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="theirsBottomLeft
+        "scale="0.03 0.03 0.03" position="0.115 1.2 -1.65"><a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="theirsBottomRight
+        "scale="0.03 0.03 0.03" position="-0.115 1.2 -1.65"><a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="theirsMiddleLeft
+        "scale="0.03 0.03 0.03" position="0.0575 1.2 -1.55"><a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="theirsMiddleRight
+        "scale="0.03 0.03 0.03" position="-0.0575 1.2 -1.55"><a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+      <a-gltf-model src="#cup" static-body id="theirsTopCenter
+        "scale="0.03 0.03 0.03" position="0 1.2 -1.45"><a-circle color="#F53600" transparent="true" radius="1.75" position="0 3.85 0" rotation="-90 0 0"></a-circle></a-gltf-model>
+
+      <!-- Ping Pong Ball -->
+      <a-gltf-model src="#pingPongBall" scale="0.002 0.002 0.002" position="0.3 1.24 -0.3"></a-gltf-model>
+
+      <!-- Fratboi -->
+      <a-gltf-model src="#fratboi" static-body id="opponentFratboi" scale="0.12 0.12 0.12"
+        position="0 0.5 -2.2"></a-gltf-model>
+
+      <!-- floor -->
+      <a-plane src="#floor" position="0 0.5 -2" rotation="-90 0 0" width="10" height="9"></a-plane>
+
+      <!-- walls -->
+      <a-gltf-model src="#room" scale="1.5 2 1" position="0 -3.3 0"></a-gltf-model>
+      <a-plane color="#C4E7C0" position="0 3.3 0" rotation="90 0 0" width="10" height="9"></a-plane>
+      <a-plane src="#feridun" position="-3.15 2.5 -2.5" rotation="0 90 0" width="1" height="1"></a-plane>
+      <a-plane src="#goose" position="3.15 2.5 -3.25" rotation="0 0 0" width="1" height="1"></a-plane>
+      <a-sky color="#FFF"></a-sky>
+
+      <!-- Camera -->
+      <a-camera position="0 1.6 0.2">
+
+      <a-sound src="src: url(music/darude.mp3)" autoplay="true" loop="true" position="0 2 5"></a-sound>
+      <a-sound id="airhorn" src="src: url(music/airhorn.mp3)" autoplay="true" position="0 2 5"></a-sound>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>

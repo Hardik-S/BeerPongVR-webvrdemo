@@ -1,0 +1,23 @@
+{
+  "name": "beerpongvr",
+  "version": "1.0.0",
+  "description": "Hack the North 2018 project",
+  "main": "imports.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellgoldman/BeerPongVR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russellgoldman/BeerPongVR/issues"
+  },
+  "homepage": "https://github.com/russellgoldman/BeerPongVR#readme",
+  "dependencies": {
+    "aframe-click-drag-component": "^3.0.1",
+    "webpack": "^4.19.0"
+  }
+}
