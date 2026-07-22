@@ -6,8 +6,11 @@ AFRAME.registerComponent('waitforairhorn', {
   tock: function (time, timeDelta) {
     if (time > 7500 && this.toggle) {
       var airhorn = document.getElementById('airhorn');
+      if (!airhorn) {
+        this.toggle = false;
+        return;
+      }
       airhorn.setAttribute('autoplay', 'true');
-      console.log('bam');
       this.toggle = false;
     }
   },
