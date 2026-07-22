@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/russellgoldman/BeerPongVR.git"
+    "url": "git+https://github.com/Hardik-S/BeerPongVR-webvrdemo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/russellgoldman/BeerPongVR/issues"
+    "url": "https://github.com/Hardik-S/BeerPongVR-webvrdemo/issues"
   },
-  "homepage": "https://github.com/russellgoldman/BeerPongVR#readme",
+  "homepage": "https://github.com/Hardik-S/BeerPongVR-webvrdemo#readme",
   "dependencies": {
     "aframe-click-drag-component": "^3.0.1",
     "webpack": "^5.108.4"
