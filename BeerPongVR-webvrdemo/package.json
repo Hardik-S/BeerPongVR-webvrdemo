@@ -4,7 +4,7 @@
   "description": "Hack the North 2018 project",
   "main": "imports.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node scripts/verify-webpack-build.js"
   },
   "repository": {
     "type": "git",
