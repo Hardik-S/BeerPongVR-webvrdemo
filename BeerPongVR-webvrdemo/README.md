@@ -10,6 +10,19 @@ Hack the North 2018 project
 ## Tools:
 [A-Frame](https://aframe.io/), [MagicaVoxel](https://ephtracy.github.io/), Vive / Oculus Rift
 
+## Development
+
+Install dependencies with the legacy peer resolver because the A-Frame 0.4.x
+dependency tree predates npm's current peer dependency rules:
+
+```sh
+npm ci --ignore-scripts --legacy-peer-deps
+npm test
+```
+
+The test command runs a webpack smoke build for `components/waitForAirhorn.js`
+and writes the temporary bundle outside the repository.
+
 ## Devpost:
 https://devpost.com/software/beer-pong-vr
 
