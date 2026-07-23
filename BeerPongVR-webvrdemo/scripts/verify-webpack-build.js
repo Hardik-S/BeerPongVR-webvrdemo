@@ -4,9 +4,16 @@ const path = require('path');
 const webpack = require('webpack');
 
 const projectRoot = path.resolve(__dirname, '..');
+const airhornComponentPath = path.join(projectRoot, 'components', 'waitForAirhorn.js');
 const outputPath = path.join(os.tmpdir(), 'beerpongvr-webpack-check');
 
 fs.rmSync(outputPath, { force: true, recursive: true });
+
+const airhornComponent = fs.readFileSync(airhornComponentPath, 'utf8');
+if (/\bconsole\.log\s*\(/.test(airhornComponent)) {
+  console.error('waitForAirhorn.js should not emit debug console logs during play.');
+  process.exit(1);
+}
 
 const compiler = webpack({
   mode: 'development',
