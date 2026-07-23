@@ -23,6 +23,10 @@ npm test
 The test command runs a webpack smoke build for `components/waitForAirhorn.js`
 and writes the temporary bundle outside the repository.
 
+The scene loads A-Frame from the CDN script in `index.html`. The old
+top-level drag bundle is not loaded by the page, so the npm install keeps only
+the tooling needed for the smoke build.
+
 ## Devpost:
 https://devpost.com/software/beer-pong-vr
 

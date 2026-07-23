@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/Hardik-S/BeerPongVR-webvrdemo#readme",
   "dependencies": {
-    "aframe-click-drag-component": "^3.0.1",
     "webpack": "^5.108.4"
   }
 }
