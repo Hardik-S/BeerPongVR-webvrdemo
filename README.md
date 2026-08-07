@@ -12,6 +12,21 @@ Hack the North 2018 project
 ## Tools:
 [A-Frame](https://aframe.io/), [MagicaVoxel](https://ephtracy.github.io/), Vive / Oculus Rift
 
+## Development
+
+The runnable app lives in `BeerPongVR-webvrdemo/`; the repository root contains project documentation. From a fresh clone,
+run the development commands from the app directory:
+
+```sh
+cd BeerPongVR-webvrdemo
+npm ci --ignore-scripts --legacy-peer-deps
+npm test
+```
+
+`npm test` runs the webpack smoke check for the airhorn component and writes its temporary bundle outside the repository.
+For a local preview, serve `BeerPongVR-webvrdemo/` with a static web server and open `index.html`. See the
+[application README](BeerPongVR-webvrdemo/README.md) for the component-specific development notes.
+
 ## Devpost:
 https://devpost.com/software/beer-pong-vr
 
