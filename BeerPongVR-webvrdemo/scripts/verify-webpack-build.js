@@ -53,6 +53,17 @@ if (/\bconsole\.log\s*\(/.test(airhornComponent)) {
   process.exit(1);
 }
 
+const airhornTag = /<a-sound\b[^>]*\bid="airhorn"[^>]*>/i.exec(indexHtml)?.[0];
+if (!airhornTag || !/\bwaitforairhorn\b/i.test(airhornTag) || /\bautoplay\s*=/i.test(airhornTag)) {
+  console.error('The airhorn scene element should use waitforairhorn without immediate autoplay.');
+  process.exit(1);
+}
+
+if (!/\btick\s*:\s*function\s*\(/.test(airhornComponent)) {
+  console.error('waitForAirhorn.js should use A-Frame\'s tick lifecycle callback.');
+  process.exit(1);
+}
+
 const compiler = webpack({
   mode: 'development',
   context: projectRoot,

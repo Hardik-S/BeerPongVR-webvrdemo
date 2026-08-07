@@ -3,7 +3,7 @@ AFRAME.registerComponent('waitforairhorn', {
   init: function () {
     this.toggle = true;
   },
-  tock: function (time, timeDelta) {
+  tick: function (time, timeDelta) {
     if (time > 7500 && this.toggle) {
       var airhorn = document.getElementById('airhorn');
       if (!airhorn) {
