@@ -27,6 +27,9 @@ The scene loads A-Frame from the CDN script in `index.html`. The old
 top-level drag bundle is not loaded by the page, so the npm install keeps only
 the tooling needed for the smoke build.
 
+The airhorn is intentionally started by the `waitforairhorn` component after
+the scene has been running for 7.5 seconds, rather than autoplaying immediately.
+
 ## Devpost:
 https://devpost.com/software/beer-pong-vr
 
