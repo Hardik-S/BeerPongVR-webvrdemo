@@ -29,6 +29,8 @@ the tooling needed for the smoke build.
 
 The airhorn is intentionally started by the `waitforairhorn` component after
 the scene has been running for 7.5 seconds, rather than autoplaying immediately.
+If the scene element is not ready at that point, the component keeps waiting
+and starts playback on the first later tick where the element is available.
 
 ## Devpost:
 https://devpost.com/software/beer-pong-vr
