@@ -1,6 +1,7 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const vm = require('vm');
 const webpack = require('webpack');
 
 const projectRoot = path.resolve(__dirname, '..');
@@ -50,6 +51,41 @@ if (missingReferences.length > 0) {
 const airhornComponent = fs.readFileSync(airhornComponentPath, 'utf8');
 if (/\bconsole\.log\s*\(/.test(airhornComponent)) {
   console.error('waitForAirhorn.js should not emit debug console logs during play.');
+  process.exit(1);
+}
+
+let registeredAirhornComponent;
+const runtime = {
+  AFRAME: {
+    registerComponent(name, definition) {
+      if (name === 'waitforairhorn') registeredAirhornComponent = definition;
+    },
+  },
+  document: { getElementById: () => null },
+};
+vm.runInNewContext(airhornComponent, runtime, { filename: airhornComponentPath });
+if (!registeredAirhornComponent) {
+  console.error('waitForAirhorn.js should register the waitforairhorn component.');
+  process.exit(1);
+}
+
+const airhornState = {};
+registeredAirhornComponent.init.call(airhornState);
+registeredAirhornComponent.tick.call(airhornState, 7501, 16);
+if (airhornState.toggle !== true) {
+  console.error('waitForAirhorn.js should keep waiting when the scene element is not ready.');
+  process.exit(1);
+}
+
+let autoplayAttribute;
+runtime.document.getElementById = () => ({
+  setAttribute(name, value) {
+    if (name === 'autoplay') autoplayAttribute = value;
+  },
+});
+registeredAirhornComponent.tick.call(airhornState, 7502, 16);
+if (autoplayAttribute !== 'true' || airhornState.toggle !== false) {
+  console.error('waitForAirhorn.js should start the airhorn once the scene element is ready.');
   process.exit(1);
 }
 

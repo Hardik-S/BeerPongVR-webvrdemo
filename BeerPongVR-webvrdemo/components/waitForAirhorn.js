@@ -7,7 +7,6 @@ AFRAME.registerComponent('waitforairhorn', {
     if (time > 7500 && this.toggle) {
       var airhorn = document.getElementById('airhorn');
       if (!airhorn) {
-        this.toggle = false;
         return;
       }
       airhorn.setAttribute('autoplay', 'true');
